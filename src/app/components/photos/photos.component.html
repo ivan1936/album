@@ -1,0 +1,40 @@
+<div>
+  <h2 class="title">Search Photos</h2>
+  <div class="search">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Type your search"
+        #searchInput
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="updateSearchStr(searchInput.value)"
+    >
+      <mat-icon>search</mat-icon>
+      Search
+    </button>
+  </div>
+  <ng-container *ngIf="searchResults$ | async as data">
+    <div class="container" *ngIf="data.photos.length">
+      <div class="list" *ngFor="let photo of data.photos">
+        <img
+          [src]="photo?.urls[0]"
+          alt=""
+          [routerLink]="['photos', photo.id]"
+        />
+      </div>
+    </div>
+
+    <div class="total mat-h2">Total: {{ data.total }}</div>
+
+    <app-pagination
+      [total_pages]="data.total_pages"
+      [currentPage]="currentPage"
+      (updatePage)="updatePage($event)"
+    ></app-pagination>
+  </ng-container>
+</div>

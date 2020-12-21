@@ -1,0 +1,11 @@
+.pagination {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+}
+
+button {
+  border-radius: 5px;
+  font-weight: bold;
+}

@@ -1,0 +1,30 @@
+<mat-card class="pagination" fxLayoutGap="20px">
+  <button
+    [value]="1"
+    (click)="onClick($event)"
+    [disabled]="currentPage === 1 && total_pages === 1"
+  >
+    <<
+  </button>
+  <button
+    [value]="currentPage - 1"
+    (click)="onClick($event)"
+    [disabled]="currentPage - 1 === 0"
+  >
+    <
+  </button>
+  <button
+    [value]="currentPage + 1"
+    (click)="onClick($event)"
+    [disabled]="currentPage >= total_pages"
+  >
+    >
+  </button>
+  <button
+    [value]="total_pages"
+    (click)="onClick($event)"
+    [disabled]="currentPage === 1 && total_pages === 1"
+  >
+    >>
+  </button>
+</mat-card>
