@@ -1,8 +1,8 @@
 <ng-container *ngIf="photo$ | async as photo">
   <div class="container" *ngIf="photo">
-    <div class="list">
-      <img [src]="photo?.urls[1]" alt="" />
-      <p>{{ photo?.description }}</p>
-    </div>
+    <mat-card>
+      <img [src]="photo?.urls[1]" alt="" [routerLink]="['']" />
+      <p class="description">{{ photo?.description }}</p>
+    </mat-card>
   </div>
 </ng-container>
